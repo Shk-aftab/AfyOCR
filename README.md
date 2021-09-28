@@ -8,3 +8,6 @@ Yolov4 was used to detect the text in the image and CRNN model was used for reco
 
 ## Dataset
 I got some open-source dataset regarding text detection. 
+
+## Refrence 
+https://github.com/zihaomu/deep-text-recognition-benchmark
