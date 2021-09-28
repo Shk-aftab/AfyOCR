@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>OCR</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg sticky-top navbar-dark bg-primary">
+  <a class="navbar-brand ml-5" style="font-size: 25px">OCR</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarColor01">
+  </div>
+</nav> 
+
+<div class="p-5">
+
+    <strong class="text-center"> <h1> Let's Extract the text</h1> </strong>
+    <div class="row col-sm-10 offset-sm-1 bg-light">
+
+        <div class="col-sm-6 offset-sm-3">
+            <br>
+            <legend class="text-center"> Upload Your Photo. </legend>
+            <form action="{{url_for("main")}}", method="post", enctype=multipart/form-data >
+                
+                <div class="form-group">
+                    <label for="img"></label>
+                    <input type="file", class="form-control" aria-describedby="img_help" placeholder="Select File" , name="img", accept="image/*" single style="padding-bottom: 36px;">
+                </div>
+                <input class="col-sm-4 offset-sm-4 btn btn-primary" type="submit" value="Extract" />
+            </form>
+        </div>        
+    </div>
+    <div class="row col-sm-12 offset-sm-1 bg-light p-5">
+        <div class="col-sm-5">
+            {% if msg %}             
+                  <img class="col-sm-12" src="{{msg[0]}}">                
+            {% endif %}
+        </div>
+        <div class="col-sm-5" >
+            {% if msg %}
+                    <label for="exampleTextarea" class="form-label mt-4">{{msg[1]}}</label>      
+            {% endif %}
+        </div>
+    </div>
+</div>
+</body>
+</html>
